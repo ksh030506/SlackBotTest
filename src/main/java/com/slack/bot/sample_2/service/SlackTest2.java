@@ -1,4 +1,4 @@
-package com.slack.bot.sample_1;
+package com.slack.bot.sample_2.service;
 
 
 import com.slack.api.Slack;
@@ -36,7 +36,7 @@ public class SlackTest2 {
 
     private List<BlockElement> getActionBlocks() {
         List<BlockElement> actions = new ArrayList<>();
-        actions.add(getActionButton("확인", "ok", "primary", "action_success"));
+        actions.add(getActionButton("확인", "success", "primary", "action_success"));
         actions.add(getActionButton("취소", "fail", "danger", "action_fail"));
         return actions;
     }
@@ -50,10 +50,9 @@ public class SlackTest2 {
                 Blocks.actions(getActionBlocks())
         );
 
-        Slack.getInstance().send("https://hooks.slack.com/services/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", WebhookPayloads
+        Slack.getInstance().send("https://hooks.slack.com/services/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", WebhookPayloads
                 .payload(p -> p.text("골라 골라~")
                         .blocks(layoutBlocks)));
-        System.out.println("전송됨");
         return message;
     }
 }
